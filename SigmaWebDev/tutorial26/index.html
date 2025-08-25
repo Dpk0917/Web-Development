@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+    <style>
+        .box {
+            width: 40vw;
+            height: 40vw;
+            border: 4px solid rgb(156, 18, 41);
+            /* overflow:auto; ye tabh hee lagega jab zarurat hogi overflow ho rha hoga   */
+            overflow: scroll;
+            /*agar sab set joga overflow nahi bhi ho rha hoga toh scroll bar dikhayega */
+            /* white-space: nowrap; */
+            /* sare text horizontally hee dikhayega ek line mei */
+            text-overflow: ellipsis;
+            /*jitne text aaenge ek baar mei aaaenge nahi toh ... aisa ajayega */
+
+            /* overflow: clip; */
+            /*fir hum scroll bhi nahi kr paenge hum joh limited text dikh rha hoga 1st time frame pe utna hee dikehga */
+
+            /* overflow-y: hidden; */
+            /* overflow-x: scroll; */
+
+            overflow: auto hidden; /* first wala x hoga second wala y */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nam magnam, enim aliquid culpa odio voluptate illo,
+        sapiente eos autem recusandae error assumenda quo hic accusamus modi totam, sequi provident? Ducimus totam
+        facilis sunt, corporis, fugit deleniti, ipsa tenetur harum a nesciunt explicabo inventore velit! Doloribus
+        magnam deleniti officiis velit fuga quisquam adipisci, expedita nemo aliquid explicabo amet aut optio unde odit
+        placeat repudiandae ducimus qui ex! Nemo laborum dicta impedit vel soluta unde consequuntur. Similique eos
+        possimus ab dignissimos reiciendis ducimus neque, quam nemo omnis accusantium quas doloremque aperiam.
+    </div>
+</body>
+
+</html>

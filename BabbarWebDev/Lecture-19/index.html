@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img1 {
+            float: right;
+            width: 200px;
+            height: 140px;
+        }
+
+        #img2 {
+            float: right;
+            width: 400px;
+            height: 240px;
+            clear: right;
+        }
+        .roww{
+            border: 2px solid black;
+            overflow: auto;
+        }
+        .items{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 2px;
+            border: 1px solid black;
+            float: left;
+        }
+        #item4{
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img id="img1" src="image.png" alt="Puneet Haha">
+        <!-- <img id="img2" src="image04.png" alt="Puneet Haha"> -->
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit magnam minus inventore numquam praesentium ut
+            distinctio quo, dolores reiciendis nisi reprehenderit incidunt, eaque ullam cupiditate soluta. Quis amet
+            esse enim. Pariatur suscipit optio odio accusantium magnam ullam commodi eligendi, dignissimos nostrum
+            expedita a tenetur quod illum assumenda officia autem adipisci libero doloribus placeat fugit, vero
+            laudantium consectetur ipsa. Voluptate et amet repellendus animi fugiat nisi incidunt, numquam molestiae
+            fugit vitae esse modi debitis! Dolorem dolorum corrupti modi praesentium a nisi distinctio nobis quidem
+            commodi magnam odit ipsam rem, alias cum natus aspernatur saepe. Quisquam et quod dolorum est ullam error
+            expedita in quidem ipsa harum assumenda amet distinctio asperiores, id nulla necessitatibus tempora aut esse
+            vitae ratione voluptatum doloribus nesciunt! Similique odio commodi quo quod explicabo earum, autem officia
+            rem officiis quibusdam corporis voluptatibus. Voluptas iusto dicta tempore quisquam fuga eos dolorem? Ea,
+            officiis dolor in esse eaque amet est magni perferendis, quasi nihil consequuntur labore pariatur soluta
+            mollitia vel! Nemo rerum quo ullam eos earum autem minus ipsum distinctio eligendi sit adipisci, quidem quos
+            nesciunt placeat aspernatur omnis dolorum necessitatibus velit veritatis, eum porro soluta asperiores.
+            Sapiente vel dolore, harum accusantium, esse, ducimus maiores odio nobis fugit possimus deleniti debitis
+            quidem id repudiandae voluptatibus distinctio neque cum dolorem aliquid in tempore voluptate? Quia dolores
+            maiores nisi, optio sequi amet non animi veniam ducimus voluptas laudantium quod placeat assumenda numquam.
+            Placeat similique facilis, possimus tenetur totam voluptates rerum iure. Aliquid dolore suscipit dolores
+            nesciunt debitis eligendi voluptas provident inventore! Quos eius totam alias veniam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet pariatur provident, assumenda esse harum
+            beatae cumque voluptas laborum iusto vel iste soluta mollitia similique error ipsam quas. Laborum iste
+            impedit saepe ducimus rem ex veniam aperiam voluptate esse dignissimos architecto porro odit dolorum nostrum
+            repellat deserunt facere accusamus sint sed, ratione praesentium nemo? Ducimus voluptas labore enim
+            molestiae fugiat quo qui vero? Earum minus officiis magni fuga odio qui adipisci. Fuga, mollitia. Dolores
+            sunt quia neque vel officiis iste?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt maiores porro quidem vel repellendus
+            quisquam minima, voluptate dolor maxime reiciendis saepe cum sequi soluta commodi quo delectus illum eum
+            cupiditate praesentium. Quia reiciendis quasi alias iste ut sapiente a totam amet, ullam sit. Laboriosam,
+            excepturi neque. Et minus sint suscipit fugiat officiis possimus deleniti placeat ad animi quae, dolore
+            nihil, nam quis quia tenetur impedit provident modi quam earum hic facere? Fuga modi cupiditate sit maiores
+            pariatur assumenda dolorum!</p>
+
+        <!-- <img id="img1" src="image.png" alt="Puneet Haha">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit magnam minus inventore numquam praesentium ut
+            distinctio quo, dolores reiciendis nisi reprehenderit incidunt, eaque ullam cupiditate soluta. Quis amet
+            esse enim. Pariatur suscipit optio odio accusantium magnam ullam commodi eligendi, dignissimos nostrum
+            expedita a tenetur quod illum assumenda officia autem adipisci libero doloribus placeat fugit, vero
+            laudantium consectetur ipsa. Voluptate et amet repellendus animi fugiat nisi incidunt, numquam molestiae
+            fugit vitae esse modi debitis! Dolorem dolorum corrupti modi praesentium a nisi distinctio nobis quidem
+            commodi magnam odit ipsam rem, alias cum natus aspernatur saepe. Quisquam et quod dolorum est ullam error
+            expedita in quidem ipsa harum assumenda amet distinctio asperiores, id nulla necessitatibus tempora aut esse
+            vitae ratione voluptatum doloribus nesciunt! Similique odio commodi quo quod explicabo earum, autem officia
+            rem officiis quibusdam corporis voluptatibus. Voluptas iusto dicta tempore quisquam fuga eos dolorem? Ea,
+            officiis dolor in esse eaque amet est magni perferendis, quasi nihil consequuntur labore pariatur soluta
+            mollitia vel! Nemo rerum quo ullam eos earum autem minus ipsum distinctio eligendi sit adipisci, quidem quos
+            nesciunt placeat aspernatur omnis dolorum necessitatibus velit veritatis, eum porro soluta asperiores.
+            Sapiente vel dolore, harum accusantium, esse, ducimus maiores odio nobis fugit possimus deleniti debitis
+            quidem id repudiandae voluptatibus distinctio neque cum dolorem aliquid in tempore voluptate? Quia dolores
+            maiores nisi, optio sequi amet non animi veniam ducimus voluptas laudantium quod placeat assumenda numquam.
+            Placeat similique facilis, possimus tenetur totam voluptates rerum iure. Aliquid dolore suscipit dolores
+            nesciunt debitis eligendi voluptas provident inventore! Quos eius totam alias veniam.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet pariatur provident, assumenda esse harum
+            beatae cumque voluptas laborum iusto vel iste soluta mollitia similique error ipsam quas. Laborum iste
+            impedit saepe ducimus rem ex veniam aperiam voluptate esse dignissimos architecto porro odit dolorum nostrum
+            repellat deserunt facere accusamus sint sed, ratione praesentium nemo? Ducimus voluptas labore enim
+            molestiae fugiat quo qui vero? Earum minus officiis magni fuga odio qui adipisci. Fuga, mollitia. Dolores
+            sunt quia neque vel officiis iste?</p> -->
+    </div>
+
+    <div class="roww">
+        <div class="items">A</div>
+        <div class="items">B</div>
+        <div class="items">C</div>
+        <div class="items" id="item4">D</div>
+    </div>
+</body>
+
+</html>

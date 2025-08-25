@@ -1,0 +1,22 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background:linear-gradient(315deg,#d5eaf3,#cbe8d8);
+}
+
+#para01{
+    display: inline;
+}
+#img01{
+    margin-top: 5px;
+}
+.box{
+    font-size: 30px;
+    font-family: fantasy;
+    margin-left: 50px;
+    padding-top: 20px;
+}

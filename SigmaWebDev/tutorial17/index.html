@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector</title>
+    <style>
+        /*element selector*/
+        /* div{
+            background-color:chocolate;
+        } */
+        
+        /* class selector */
+        .red{
+            background-color: chartreuse;
+        }
+
+        /* id selector */
+        #green{
+            background-color: darkorange;
+        }
+
+        /* child selector */
+        div > p{
+            background-color: deeppink;
+        }
+
+        /* desandant selector */
+        div p{
+            background-color: orchid;
+        }
+
+        /* universal selector */
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        /*  for padding */
+        /* .box {
+            padding: 20px;
+            background-color: lightblue;
+        }*/
+
+        /* for margin */
+        .box {
+            margin: 20px;
+            background-color: lightblue;
+        }
+
+        /* pseudo selector */
+        a:visited{
+            color: deeppink;
+        }
+        a:link{
+            color: grey;
+        }
+        a:active{
+            background-color: purple;
+        }
+        a:hover{
+            background-color: rgb(232, 201, 28);
+        }
+        p:first-child{
+            background-color: crimson;
+        }
+        .button:active {
+            background-color: darkblue;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main class="blue">
+        <p>
+            I am first too
+        </p>
+    </main>
+    <div class="red">
+        I am div...    
+    </div>
+    <div class="box">
+            Hey :)
+    </div>
+    <div>
+        hello 
+    </div>
+    <div id="green">
+        i am another div...
+    </div>
+    <div>
+        <p>1st p</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, corrupti!</p>
+    </div>
+    <div>
+        <a target="_blank" href="https://www.google.com">Go Directly to google</a>
+        <a target="_blank" href="https://www.facebook2.com">Go to facebook2</a>
+    </div>
+    <div class="wrapper">
+        <button class="button">
+            Click on the button to see the active button
+        </button>
+    </div>
+</body>
+</html>

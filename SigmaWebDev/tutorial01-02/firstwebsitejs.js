@@ -1,0 +1,1 @@
+alert("Welcome to AFFWA Boys Hostel 2")

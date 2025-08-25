@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Forecast</title>
+  <script defer>
+    async function getWeather() {
+      const city = document.getElementById("CityNamee").value.trim();
+      const resultDiv = document.getElementById("result");
+
+      if (!city) {
+        resultDiv.innerHTML = `<span style="color: yellow;">⚠️ Please enter a city name!</span>`;
+        return;
+      }
+
+      try {
+        // Step 1: Geocode city to coordinates using OpenStreetMap API
+        const geoResp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`);
+        const geoData = await geoResp.json();
+
+        if (geoData.length === 0) {
+          resultDiv.innerHTML = `<span style="color: red;">❌ City not found!</span>`;
+          return;
+        }
+
+        const latitude = geoData[0].lat;
+        const longitude = geoData[0].lon;
+
+        // Step 2: Get weather from Meteomatics
+        const username = "deepakwealther_singh_deepak";
+        const password = "V3868dHQskDOPi83FMV7";
+        const now = new Date().toISOString().split('.')[0] + "Z";
+        const url = `https://api.meteomatics.com/${now}/t_2m:C/${latitude},${longitude}/json`;
+
+        const headers = new Headers();
+        headers.set("Authorization", "Basic " + btoa(`${username}:${password}`));
+
+        const weatherResp = await fetch(url, { headers });
+
+        if (!weatherResp.ok) {
+          throw new Error(`Meteomatics error ${weatherResp.status}`);
+        }
+
+        const weatherData = await weatherResp.json();
+        const temp = weatherData.data[0].coordinates[0].dates[0].value;
+
+        resultDiv.innerHTML = `
+          📍 <strong>${city}</strong><br>
+          🌐 Lat: ${latitude}, Lon: ${longitude}<br>
+          🌡️ Temperature: ${temp}°C
+        `;
+      } catch (error) {
+        console.error(error);
+        resultDiv.innerHTML = `<span style="color: red;">⚠️ Error fetching weather data</span>`;
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-image: url(image.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .Weather {
+      background-image: url(image1.png);
+      height: 480px;
+      width: 450px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #fff;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .Forecast {
+      color: rgba(255, 255, 255, 0.863);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #City {
+      font-size: 18px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 70%;
+      border-radius: 5px;
+      border: 1px solid #333;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .hello {
+      margin-top: 20px;
+      font-size: 20px;
+      border-radius: 5px;
+      background-color: rgb(107, 139, 236);
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      cursor: pointer;
+    }
+
+    .hello:hover {
+      background-color: royalblue;
+    }
+
+    #result {
+      margin-top: 20px;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset class="Weather">
+    <legend>
+      <h1 class="Forecast">Weather Forecast</h1>
+    </legend>
+    <label for="CityNamee" id="City">CITY NAME:</label>
+    <input type="text" id="CityNamee" name="CityName" placeholder="Enter City Name" required />
+    <button class="hello" onclick="getWeather()">Get Weather</button>
+    <div id="result"></div>
+  </fieldset>
+</body>
+
+</html>

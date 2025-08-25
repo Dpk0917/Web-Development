@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Delivery Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+    .tracker-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .step {
+      padding: 15px;
+      border-left: 5px solid #ccc;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    .step.active {
+      background: #cce5ff;
+      border-left-color: #007bff;
+      font-weight: bold;
+    }
+    .step.completed {
+      background: #d4edda;
+      border-left-color: #28a745;
+      color: #155724;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #007bff;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tracker-container">
+    <h2>Live Delivery Tracker</h2>
+    <div id="steps">
+      <div class="step">1. Order Placed</div>
+      <div class="step">2. Packed</div>
+      <div class="step">3. Shipped</div>
+      <div class="step">4. Out for Delivery</div>
+      <div class="step">5. Delivered</div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+  </div>
+
+  <script>
+    const steps = document.querySelectorAll(".step");
+    const progress = document.getElementById("progress");
+
+    let current = 0;
+
+    function updateSteps() {
+      steps.forEach((step, index) => {
+        step.classList.remove("active", "completed");
+        if (index < current) {
+          step.classList.add("completed");
+        } else if (index === current) {
+          step.classList.add("active");
+        }
+      });
+
+      const percentage = ((current + 1) / steps.length) * 100;
+      progress.style.width = percentage + "%";
+
+      if (current < steps.length - 1) {
+        current++;
+      }
+    }
+
+    updateSteps(); // initial step
+
+    setInterval(updateSteps, 3000); // update every 3 seconds
+  </script>
+</body>
+</html>

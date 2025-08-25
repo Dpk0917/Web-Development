@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS display properties</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            border: 4px solid black;
+            display: inline-block;
+            padding: 40px;
+            margin: 35px;
+            width: 344px;
+            /* display: none; */
+
+            /* display: flex;*/
+            /* isse woh element ek ke niche ek ajaenge */
+
+            /*justify-content: center;*/
+            /*content ko center pe lane ke liye use krenge isse IMP*/
+
+            display: inline-flex;
+            /*isse woh ussi line mei rahega niche shift nahi hoga*/
+            justify-content: center;
+            /*aur isse toh center hoga hee*/
+
+        }
+
+        .box1 {
+
+            /* display: none;  */
+            /*isse woh box aur uski space dono gayab ho jayega*/
+            /* visibility: hidden; */
+            /*isse sirf box gayab hoga uski space utni hee rahegi*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1">
+        I am a box
+    </div>
+    <div class="box">
+        also a good box
+    </div>
+    <span>I am a good Boy</span>
+    <span>
+        hahahaha
+    </span>
+    <span style="display: inline; background-color: yellow;">Inline Span 1</span>
+    <span style="display: inline; background-color: lightblue;">Inline Span 2</span>
+    <div style="display: block; background-color: orange;">Block Div 1</div>
+    <div style="display: block; background-color: green;">Block Div 2</div>
+    <p style="display: none;">You can't see me, and I don't take space.</p>
+    <p style="visibility: hidden;">You can't see me, but I still take space.</p>
+    <p>I am visible below!</p>
+
+    <div style="display: flex;">
+        <div style="background: lightcoral; padding: 10px;">Item 1</div>
+        <div style="background: lightblue; padding: 10px;">Item 2</div>
+        <div style="background: lightgreen; padding: 10px;">Item 3</div>
+    </div>
+    <div style="display: grid;">
+        <div style="background: lightcoral;">Grid 1</div>
+        <div style="background: lightblue;">Grid 2</div>
+        <div style="background: lightgreen;">Grid 3</div>
+    </div>
+
+
+</body>
+
+</html>

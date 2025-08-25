@@ -1,0 +1,15 @@
+.red{
+    color: rgb(241, 15, 15);
+}
+
+.bg-yellow{
+    background-color: rgb(9, 189, 9);
+}
+
+/* #firstdiv{
+    background-color: brown;
+} */
+
+#seconddiv{
+    background-color: blueviolet;
+}

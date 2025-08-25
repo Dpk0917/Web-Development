@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Black & White Toggle</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      text-align: center;
+      font-size: 24px;
+      transition: background 0.3s, color 0.3s;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Click the button to change color</h1>
+  <button onclick="toggleColor()">Toggle</button>
+
+  <script>
+    function toggleColor() {
+      document.body.classList.toggle("black");
+    }
+  </script>
+
+  <style>
+    .black {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</body>
+</html>
