@@ -6,3 +6,8 @@ newElement.innerText="This is my heading";
 mydiv.insertAdjacentElement('beforebegin',newElement);
 // mydiv.insertAdjacentElement('afterend',newElement);
 // mydiv.insertAdjacentElement('beforeend',newElement);
+
+let parent=document.querySelector('#mydiv');
+let child=document.querySelector('#fpara');
+
+parent.removeChild(child);
