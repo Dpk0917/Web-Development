@@ -8,10 +8,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Oswald:wght@200..700&display=swap"
         rel="stylesheet">
-
+    <title>My-Sim</title>
     <!-- fullPage.js CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.css" />
 
+    <link rel="icon" type="image/png" href="image.png">
     <style>
         html,
         body {
@@ -106,14 +107,14 @@
 </head>
 
 <body>
-    
+
     <div id="fullpage">
-        
+
         <!-- Section 1 -->
         <div class="section" style="background:#eddbdf; color:#b56576;">
             <h1>Welcome to your own website Sim! Dedicated to you Only Cutie.</h1>
             <h2>
-                It all began the day I see you… and this site is just another chapter of our story.
+                It all began the day I saw you… and this site is just another chapter of our story.
                 <br>Hope you like it
             </h2>
         </div>
@@ -189,9 +190,9 @@
             <h1>So Waise Deepak galti nahi krta but still agar krde toh</h1>
             <div class="box">
                 <p>What do you think I should improve?</p>
-                <input type="text" placeholder="...">
+                <input type="text" id="feedbackInput" placeholder="...">
                 <br>
-                <button onclick="saveToSheets()" style="
+                <button onclick="saveToFirestore('feedbackInput')" style="
                     background: linear-gradient(90deg, #b56576 0%, #eddbdf 100%);
                     color: #fff;
                     border: none;
@@ -203,11 +204,9 @@
                     box-shadow: 0 2px 8px rgba(181, 101, 118, 0.15);
                     transition: background 0.3s, transform 0.2s;
                     margin-top: 18px;
-                " 
-                onmouseover="this.style.background='linear-gradient(90deg, #eddbdf 0%, #b56576 100%)'; this.style.transform='scale(1.05)';"
-                onmouseout="this.style.background='linear-gradient(90deg, #b56576 0%, #eddbdf 100%)'; this.style.transform='scale(1)';"
-                >Save Online</button>
-
+                " onmouseover="this.style.background='linear-gradient(90deg, #eddbdf 0%, #b56576 100%)'; this.style.transform='scale(1.05)';"
+                    onmouseout="this.style.background='linear-gradient(90deg, #b56576 0%, #eddbdf 100%)'; this.style.transform='scale(1)';">Save
+                    Online</button>
             </div>
         </div>
 
@@ -217,8 +216,8 @@
             <img src="image05.png" alt="i5" id="i5">
             <div class="box">
                 <p>IG Someone Is thinking ki likhu yaa nahi</p>
-                <input type="text" placeholder="...">
-                <button onclick="saveToSheets()" style="
+                <input type="text" id="appreciationInput" placeholder="...">
+                <button onclick="saveToFirestore('appreciationInput')" style="
                     background: linear-gradient(90deg, #b56576 0%, #eddbdf 100%);
                     color: #fff;
                     border: none;
@@ -230,11 +229,9 @@
                     box-shadow: 0 2px 8px rgba(181, 101, 118, 0.15);
                     transition: background 0.3s, transform 0.2s;
                     margin-top: 18px;
-                " 
-                onmouseover="this.style.background='linear-gradient(90deg, #eddbdf 0%, #b56576 100%)'; this.style.transform='scale(1.05)';"
-                onmouseout="this.style.background='linear-gradient(90deg, #b56576 0%, #eddbdf 100%)'; this.style.transform='scale(1)';"
-                >Save Online</button>
-
+                " onmouseover="this.style.background='linear-gradient(90deg, #eddbdf 0%, #b56576 100%)'; this.style.transform='scale(1.05)';"
+                    onmouseout="this.style.background='linear-gradient(90deg, #b56576 0%, #eddbdf 100%)'; this.style.transform='scale(1)';">Save
+                    Online</button>
             </div>
         </div>
     </div>
@@ -247,33 +244,59 @@
             navigation: true,
             controlArrows: true
         });
-        const SCRIPT_URL = "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbw9oy0FkmcAjr7UOZY59d_FOrv7agIj3eDE0r8nFyq08yTkpiF144AdDF0inIIJHmvG/exec";
+    </script>
 
+    <!-- Firebase Firestore -->
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+        import { getFirestore, addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-        async function saveToSheets() {
-            const inputs = document.querySelectorAll("input[type='text']");
-            const payload = {
-                feedback: inputs[0] ? inputs[0].value : "",
-                appreciation: inputs[1] ? inputs[1].value : ""
-            };
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmoZrkuj3Bgl48eWS7RQcGqgu_-R44o0k",
+            authDomain: "sim-website31.firebaseapp.com",
+            projectId: "sim-website31",
+            storageBucket: "sim-website31.firebasestorage.app",
+            messagingSenderId: "911972247094",
+            appId: "1:911972247094:web:d30bfeba3ca1d067949a97",
+            measurementId: "G-6FB1DYLVVN"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        // ✅ Reusable function for saving to Firestore
+        async function saveToFirestore(inputId) {
+            const el = document.getElementById(inputId);
+            const text = el?.value?.trim();
+            if (!text) {
+                alert("Please type something first.");
+                return;
+            }
 
             try {
-                const res = await fetch(SCRIPT_URL, {
-                    method: "POST",
-                    mode: "cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
+                await addDoc(collection(db, inputId), {
+                    text: text,
+                    createdAt: serverTimestamp()
                 });
-
-                const text = await res.text();
-                console.log("Server response:", text);
-                alert("Saved online!");
-            } catch (err) {
-                console.error("Save failed:", err);
-                alert("Could not save online. Check console for errors.");
+                alert("Deepak Will Work On It, Simmmm!");
+                el.value = "";
+            } catch (error) {
+                console.error("Firestore save error:", error);
+                alert("Apka message nahi pahuch paya, Sorry for the inconvenience.");
             }
         }
+
+        // Expose function globally for inline onclick
+        window.saveToFirestore = saveToFirestore;
     </script>
+
+
+
 </body>
 
 </html>
