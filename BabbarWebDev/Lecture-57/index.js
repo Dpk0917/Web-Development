@@ -20,7 +20,7 @@
 //awaits //fetch the data ->async
 //process the data ->sync
 
-cons myHeaders = new Headers();
+ myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
 const myRequest = new Request("https://api.github.com/users", {
