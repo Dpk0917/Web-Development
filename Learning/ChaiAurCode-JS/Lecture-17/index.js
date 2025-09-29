@@ -20,7 +20,7 @@ const regularname={
 
 }
 
-console.log(regularname.fullname.userName);
+// console.log(regularname.fullname.userName);
 
 const name1={
     1:"a",
@@ -58,11 +58,26 @@ const user=[
     }
 ]
     
-console.log(user[1].EmailAddress);
+// console.log(user[1].EmailAddress);
 
-console.log(tinderUser);
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
-console.log(Object.entries(tinderUser));
+// console.log(tinderUser);
+// console.log(Object.keys(tinderUser));
+// console.log(Object.values(tinderUser));
+// console.log(Object.entries(tinderUser));
 
-console.log(tinderUser.hasOwnProperty('id'));
+// console.log(tinderUser.hasOwnProperty('id'));
+
+
+const course={
+    coursename:"js in hindi",
+    price:"777",
+    courseInstructor:"hitesh",
+}
+
+// console.log(course.courseInstructor);   access krne ka 1 tareeka 
+
+// const {courseInstructor}=course; 
+
+const {courseInstructor:deepak}=course;
+
+console.log(deepak);
