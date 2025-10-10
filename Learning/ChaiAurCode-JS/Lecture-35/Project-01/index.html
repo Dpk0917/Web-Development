@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(122, 1, 1);
+        color: white;
+        text-align: center;
+    }
+    .class{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 20px;
+        cursor: pointer;
+        border: 2px solid rgb(114, 5, 237);
+    }
+
+    #grey{
+        background-color: grey;
+    }
+    #white{
+        background-color: white;
+    }
+    #black{
+        background-color: black;
+    }
+    #blue{
+        background-color: blue;
+    }
+    #pink{
+        background-color:rgb(245, 8, 174) ;
+    }
+    </style>
+<body>
+    <h1>color scheme switcher</h1>
+    <span class="class" id="grey">
+    </span>
+    <span class="class" id="white">
+    </span>
+    <span class="class" id="black">
+    </span>
+    <span class="class" id="blue">
+    </span>
+    <span class="class" id="pink">
+    </span>
+</body>
+<script>
+    const buttons=document.querySelectorAll(".class");
+    const body=document.querySelector("body");
+
+    buttons.forEach (function (buttons) {
+        console.log(buttons);
+        buttons.addEventListener("click",function(e){
+            console.log(e);
+           console.log(e.target.id);
+           if(e.target.id=="grey"){
+               body.style.backgroundColor='grey';
+           }
+           else if(e.target.id=="white"){
+               body.style.backgroundColor='white';
+           }
+           else if(e.target.id=="black"){
+               body.style.backgroundColor='black';
+           }
+           else if(e.target.id=="blue"){
+               body.style.backgroundColor='blue';
+           }
+           else if(e.target.id=="pink"){
+               body.style.backgroundColor='pink';
+           }
+        })
+    });
+</script>
+</html>  
