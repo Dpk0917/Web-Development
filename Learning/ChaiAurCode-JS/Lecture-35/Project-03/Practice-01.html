@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Time Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        #banner span {
+            font-size: 24px;
+        }
+        #clock {
+            font-size: 48px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div id="banner">
+            <span>Your Local Time</span>
+        </div>
+        <div id="clock"></div>
+    </div>
+
+    <script>
+        const clock = document.querySelector('#clock');
+
+        setInterval(function() {
+            let date = new Date();
+            clock.innerHTML = date.toLocaleTimeString();
+        }, 1000);
+    </script>
+</body>
+</html>
