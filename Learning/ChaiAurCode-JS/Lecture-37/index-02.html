@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Timeout Test</title>
+  </head>
+  <body>
+    <h1>Hello Deepak</h1>
+    <button id="stop">Stop Changing Text</button>
+    <button id="start">start changing text</button>
+
+    <script>
+    // const sayDate=function(str){
+    //     console.log(str,Date.now());
+    // }
+
+    // const intervalId=(sayDate,1000,"hi");
+
+    // clearInterval(intervalId);
+    
+    let printing; // variable to store the interval ID
+
+    // Function to be repeated
+    function sayHello() {
+      console.log("Hello Everyone");
+    }
+
+    // When Start button is clicked
+    document.querySelector("#start").addEventListener("click", function () {
+      console.log("Started...");
+      // Prevent multiple intervals from stacking
+      if (!printing) {
+        printing = setInterval(sayHello, 1000);
+      }
+    });
+
+    // When Stop button is clicked
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearInterval(printing);
+      printing = null; // reset so you can start again
+      console.log("Stopped");
+    });
+       
+    </script>
+  </body>
+</html>

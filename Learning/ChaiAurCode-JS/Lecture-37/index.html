@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Timeout Test</title>
+</head>
+<body>
+    <h1>Hello Deepak</h1>
+<button id="stop">Stop Changing Text</button>
+
+
+    <script>
+        const saydeepak = function(){
+            console.log("deepak");
+        }
+
+        const changeText = function(){
+            document.querySelector('h1').innerHTML = "best JS series";
+        }
+
+        setTimeout(saydeepak, 2000);
+        const timeoutId = setTimeout(changeText, 2000);
+
+        // clearTimeout(timeoutId);
+
+        document.querySelector('#stop').addEventListener('click',function(e){
+            clearTimeout(timeoutId);
+            console.log("stopped");
+        })
+
+        // setTimeout(function(){
+        //     console.log("hello world");
+        // },2000);
+    </script>
+</body>
+</html>
